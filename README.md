@@ -102,39 +102,66 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
 
+1.Create a project with required entities.
 
+2.Create a module along with respective file name.
+
+3.Run the respective programs for the given boolean equations.
+
+4.Run the module and get the respective RTL outputs.
+
+5.Create university program(VWF) for getting timing diagram.
+
+6.Give the respective inputs for timing diagram and obtain the results.
 
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: JAISON RAPHAEL V
+RegisterNumber: 212221230038
+____________________________________________________________________
+module flipflop(s,r,Q,Qbar,clk);
+input s,r,clk;
+output reg Q,Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=s|(Q&(~r));
+Qbar=r|(Qbar&(~s));
+end
+endmodule
+
+JK FLIPFLOPS CODE:
+module flipflops(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
 */
 
-
-
-
-
-
 ### RTL LOGIC FOR FLIPFLOPS 
+#### SR FLIPFLOP:
+![image](https://github.com/JaisonRaphael/Experiment--05-Implementation-of-flipflops-using-verilog/assets/94165957/9b24021d-e150-4dd7-acae-8118dc4fd566)
 
-
-
-
-
-
-
-
+#### JK Flipflop:
+![image](https://github.com/JaisonRaphael/Experiment--05-Implementation-of-flipflops-using-verilog/assets/94165957/86b2289a-22de-4048-9569-229c4db95b5e)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+#### SR FLIPFLOP:
+![image](https://github.com/JaisonRaphael/Experiment--05-Implementation-of-flipflops-using-verilog/assets/94165957/da2153a9-d957-4c88-8a61-a1f05cae0b18)
 
-
-
-
-
-
-
+#### JK flipflop:
+![image](https://github.com/JaisonRaphael/Experiment--05-Implementation-of-flipflops-using-verilog/assets/94165957/c3ba249c-cf31-492d-9369-85c39bfefab3)
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
+
